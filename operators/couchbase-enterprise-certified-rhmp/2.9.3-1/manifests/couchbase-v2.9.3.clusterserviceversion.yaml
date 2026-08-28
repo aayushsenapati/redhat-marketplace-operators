@@ -386,7 +386,7 @@ metadata:
     createdAt: 2023/04/28
     description: The Couchbase Autonomous Operator allows users to easily deploy, manage, and maintain Couchbase deployments
     support: Couchbase, Inc
-  name: couchbase-operator.v2.9.2-3
+  name: couchbase-operator.v2.9.3-1
 spec:
   apiservicedefinitions: {}
   customresourcedefinitions:
@@ -1233,6 +1233,7 @@ spec:
           resources:
           - couchbaseclusters
           - couchbaseclusters/finalizers
+          - couchbaseencryptionkeys
           verbs:
           - get
           - list
@@ -1250,6 +1251,7 @@ spec:
           verbs:
           - list
           - watch
+          - update
         - apiGroups:
           - couchbase.com
           resources:
@@ -1261,6 +1263,7 @@ spec:
           - couchbasecollections
           - couchbasecollectiongroups
           verbs:
+          - get
           - list
           - watch
           - create
@@ -1272,6 +1275,7 @@ spec:
           verbs:
           - list
           - watch
+          - update
           - delete
         - apiGroups:
           - couchbase.com
@@ -1339,7 +1343,6 @@ spec:
           resources:
           - poddisruptionbudgets
           verbs:
-          - get
           - create
           - delete
           - list
@@ -1405,5 +1408,5 @@ spec:
     matchLabels:
       alm-owner-couchbase: couchbaseoperator
       operated-by: couchbaseoperator
-  version: 2.9.2-3
-  replaces: couchbase-operator.v2.9.2-2
+  version: 2.9.3-1
+  replaces: couchbase-operator.v2.9.2-3
